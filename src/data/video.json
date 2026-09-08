@@ -1,0 +1,14 @@
+{
+  "coast-run": {
+    "width": 720,
+    "height": 1280,
+    "aspect": 0.5625,
+    "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBQCdASoUACQAPxF+tFWsJ6SjJWsxgCIJYwC7NA7KeCiYGKgX1Gs15cKjCTwnK/gU72MmMpAA5+fLTjqpqqK7Tc5TpKCKIPUcnc6ECUpGvTVYjkj4SBuglXQOT44jSJslHTNG8Z9uofZJB4KYVSztdhSqdVirxSGkMGed+oArQp9AGEAj8vzJU/Se2PT2ZH5JhZwM26SkY0CeAAA="
+  },
+  "cave-glide": {
+    "width": 720,
+    "height": 1280,
+    "aspect": 0.5625,
+    "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAQBgCdASoUACQAPxFyrlAsJqQiqq35gCIJYwDKAA30nUT3xi3+fjCA2UlEW8CyoSkTTlquD7EUCGAA/HSN/B1LP6XBjdE0X7GAcK+l22stoQMEqinOLI9ohZYwpV2AuzAUj4MBcN2LYbcm0Jut/mJhIrfifbWBqN0PCD94aTYrE+GO+9XsJ9FuoFc3h/g8RF15r9I+RwoEzmrzBJVa80g1d3mBCPXw6QwDh01AAAA="
+  }
+}

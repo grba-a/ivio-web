@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "ivio", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev", "--", "-p", "4200"], "port": 4200 }
+  ]
+}

@@ -1,0 +1,40 @@
+// Source file -> semantic slug. Keeps IMG_xxxx noise out of the codebase.
+export const MAP = {
+  'IMG_5103.jpeg': 'hero-islet-gold',
+  'IMG_5104.jpeg': 'islet-gold-wide',
+  'IMG_5102.jpeg': 'islet-sun-clouds',
+  'IMG_5123.jpeg': 'cove-turquoise-boat',
+  'IMG_4881.jpeg': 'coast-outboard',
+  'IMG_4871.jpeg': 'cleft-guests',
+  'IMG_4868.jpeg': 'cleft-guests-wide',
+  'IMG_4854.jpeg': 'cliff-arch',
+  'IMG_4839.jpeg': 'cave-overhang-dusk',
+  'IMG_5108.jpeg': 'swimmers-noodles',
+  'IMG_4909.jpeg': 'swimmers-family',
+  'IMG_4688.jpeg': 'cove-rocks-swimmers',
+  'IMG_4678.jpeg': 'cliff-cove-clear',
+  'IMG_4796.jpeg': 'headland-cave',
+  'IMG_4773.jpeg': 'sunset-sun-horizon',
+  'IMG_5085.jpeg': 'sunset-boat-silhouette',
+  'IMG_5090.jpeg': 'sunset-red-cloud',
+  '2D6FEB03-928C-4D76-82F1-C36428A42F75.JPG': 'sunset-from-boat',
+  'IMG_5120.jpeg': 'harbour-mast',
+  'IMG_5125.jpeg': 'dog-swimmer',
+  'IMG_5047.jpeg': 'coast-villa',
+  'IMG_4911.jpeg': 'cliff-cave-swimmers',
+  'Dubrovnik-1306.JPG': 'ivio-graduation',
+
+  // Second batch. Fills the three holes that mattered: the boat itself, guests
+  // inside the Blue Cave, and something genuinely underwater.
+  '1501ddd5-d590-4c01-a937-93284bf6aa5a.JPG': 'bluecave-guests',
+  'GPTempDownload 3.JPG': 'freediver-cave',
+  'GPTempDownload.JPG': 'reef-fish',
+  'IMG_4327.HEIC': 'helm-open-sea',
+  'IMG_4392.HEIC': 'shore-boats-mountains',
+  'IMG_4571.HEIC': 'sunset-wake',
+  'IMG_4601.HEIC': 'cliff-open-sea',
+  'IMG_4681.HEIC': 'cliff-golden-boulders',
+  'IMG_4735.HEIC': 'boat-alone-blue',
+  // 'GPTempDownload 2.JPG' and 'IMG_4682.HEIC' left out: one is unusably dark,
+  // the other duplicates IMG_4681.
+};
