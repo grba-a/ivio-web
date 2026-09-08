@@ -23,4 +23,18 @@ export const whatsapp = (message: string) =>
   `https://wa.me/${SITE.phoneRaw}?text=${encodeURIComponent(message)}`;
 
 export const DEFAULT_MESSAGE =
-  "Hi Ivio — I found your site. I'd like to ask about a day in Dubrovnik.";
+  "Hi Ivio — I found your website. Could you tell me what a day with you would look like?\n\nMy name: \nDates: ";
+
+/**
+ * The three questions that gate the tap: what will it cost, will anyone reply,
+ * am I committing to something. With no price list on the page, leaving them
+ * unanswered reads as concealment.
+ *
+ * Everything here is structurally true - there is no booking system, so nothing
+ * CAN be charged or held. The one behavioural promise is the price in the first
+ * reply: Ivio has to actually agree to do that.
+ */
+export const REASSURANCE = 'He answers personally, and sends a price in that first reply. No deposit, no booking form — nothing is fixed until you both agree it.';
+
+/** Shorter form, for use directly under a button. */
+export const REASSURANCE_SHORT = 'No deposit, no form. He sends a price in the first reply.';

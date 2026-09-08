@@ -44,3 +44,6 @@ next-env.d.ts
 # playwright output - full-page screenshots run to tens of MB
 /verify/
 /test-results/
+
+# stray review scratch
+/.slices/

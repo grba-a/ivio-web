@@ -25,7 +25,7 @@ export const SCENES: Scene[] = [
     body: "The airport sits ten minutes from where I keep the boat. That isn't a sales line — it's the reason one person can carry the rest of this day. No transfer company, no handover, no stranger holding a card with your name spelled wrong.",
     facts: ['Any flight, any hour', 'Dubrovnik · Cavtat · Župa · Mlini', 'Split, Kotor and Mostar too'],
     hour: 'dawn',
-    ask: 'Hi Ivio — I need a transfer. My flight lands',
+    ask: "Hi Ivio — I need an airport transfer.\n\nFlight number: \nLanding: \nHow many of us: \nGoing to: ",
     media: { kind: 'route', route: 'airport' },
   },
   {
@@ -36,7 +36,7 @@ export const SCENES: Scene[] = [
     body: "Cruise ships unload around ten. The walls open at eight. That two-hour gap is the whole tour — the same stone, a tenth of the people. I'll walk you down Stradun while they're still washing it, and point out the two or three things everybody walks straight past.",
     facts: ['2–3 hours on foot', 'Walls, Stradun, the lanes above', 'Start early. That is the trick.'],
     hour: 'morning',
-    ask: 'Hi Ivio — we would like the Old Town walk. We are in Dubrovnik',
+    ask: "Hi Ivio — we would like the Old Town walk.\n\nDates we are in Dubrovnik: \nHow many of us: ",
     media: { kind: 'route', route: 'oldtown' },
   },
   {
@@ -47,7 +47,7 @@ export const SCENES: Scene[] = [
     body: "Twenty minutes off the coast the noise is gone. The Elaphiti are close enough that you don't lose half a day getting there, and empty enough that most afternoons we have a bay to ourselves. There's no fixed route. Flat sea, we go further. Rough sea, I know where it's calm.",
     facts: ['Half day or full day', 'Private — your group only', 'Koločep · Lopud · Šipan'],
     hour: 'noon',
-    ask: 'Hi Ivio — we are interested in a boat day. There are',
+    ask: "Hi Ivio — we are interested in a day on the boat.\n\nDates: \nHow many of us: \nHalf day or full day: ",
     media: { kind: 'photo', lead: 'helm-open-sea', support: ['boat-alone-blue', 'shore-boats-mountains'] },
   },
   {
@@ -58,7 +58,7 @@ export const SCENES: Scene[] = [
     body: "The Blue Cave on Koločep only does its trick between eleven and two, when the sun drops under the lip and the whole chamber lights up from below. Outside that window it's a cave. Inside it, it's the photograph you keep. Masks are on board. If you've never put your face in the water before — most people haven't.",
     facts: ['Blue Cave, Betina, coves with no name', 'Masks and floats included', 'Timed to the light, not the clock'],
     hour: 'deep',
-    ask: 'Hi Ivio — we would love to do the caves and snorkelling. We are',
+    ask: "Hi Ivio — we would love to do the caves and the snorkelling.\n\nDates: \nHow many of us: \nAny non-swimmers or children: ",
     media: { kind: 'video', lead: 'cave-glide', support: ['bluecave-guests', 'freediver-cave'] },
   },
   {
@@ -69,7 +69,7 @@ export const SCENES: Scene[] = [
     body: "We cut the engine somewhere off the islands and let it happen. It takes about forty minutes and nobody talks much. This is usually the part people message me about afterwards.",
     facts: ['About two hours', 'Timed to the real sunset — it moves all summer', 'Bring something to drink'],
     hour: 'dusk',
-    ask: 'Hi Ivio — we would like the sunset trip on',
+    ask: "Hi Ivio — we would like the sunset trip.\n\nDates: \nHow many of us: ",
     media: {
       kind: 'photo',
       lead: 'sunset-sun-horizon',
