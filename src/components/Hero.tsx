@@ -1,5 +1,6 @@
 import media from '@/data/media.json';
-import { whatsapp, DEFAULT_MESSAGE } from '@/data/site';
+import { whatsapp, DEFAULT_MESSAGE, REASSURANCE_SHORT } from '@/data/site';
+import { SunArc } from './SunArc';
 
 const MOBILE = 'islet-sun-clouds';
 const DESKTOP = 'hero-islet-gold';
@@ -42,15 +43,22 @@ export function Hero() {
       {/* Two layers instead of one heavy scrim.
           Measured over the real pixels, a single full-frame scrim strong enough
           to carry the headline (>4.5:1) flattens the sky and the sun into mud.
-          So: a vertical wash that keeps the top of the picture almost clean,
-          plus a plate anchored to the bottom-left corner where the type
-          actually sits. The islet, the sun and the water stay photographs. */}
+          So: a vertical wash that keeps only the very top of the picture
+          clean, plus a plate anchored to the bottom-left corner where the
+          type actually sits. The islet, the sun and the water stay photographs.
+
+          The stops are monotonic on purpose. An earlier version dipped to its
+          lightest around 56% from the bottom - which is exactly where the H1
+          sits (measured 56-72% from the bottom at 390px) - so the headline's
+          own row landed on the most transparent band of the whole scrim and
+          measured 1.9:1 against the sky behind it. A gradient that only ever
+          gets lighter as it goes up can't reintroduce that trap. */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
           background:
-            'linear-gradient(to top, rgba(4,18,25,0.86) 0%, rgba(4,18,25,0.55) 26%, rgba(4,18,25,0.12) 56%, rgba(4,18,25,0.30) 100%)',
+            'linear-gradient(to top, rgba(4,18,25,0.90) 0%, rgba(4,18,25,0.72) 30%, rgba(4,18,25,0.62) 50%, rgba(4,18,25,0.46) 68%, rgba(4,18,25,0.22) 85%, rgba(4,18,25,0.08) 100%)',
         }}
       />
       <div
@@ -73,7 +81,7 @@ export function Hero() {
         </p>
 
         <h1
-          className="rise mt-5 max-w-[17ch] text-[clamp(2.6rem,10.5vw,6.5rem)] leading-[0.94] tracking-[-0.02em] text-[#fdfaf4]"
+          className="rise mt-5 max-w-[17ch] text-[clamp(3rem,12vw,6.5rem)] leading-[0.94] tracking-[-0.02em] text-[#fdfaf4]"
           style={{ animationDelay: '160ms' }}
         >
           One local.
@@ -107,7 +115,7 @@ export function Hero() {
             href={whatsapp(DEFAULT_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-[#e08b3c] px-7 text-[15px] font-medium text-[#101f26] transition-transform active:scale-[0.98] sm:hover:-translate-y-0.5"
+            className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-amber px-7 text-[15px] font-medium text-[#101f26] transition-transform active:scale-[0.98] sm:hover:-translate-y-0.5"
           >
             <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor" aria-hidden>
               <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.25.69-1.43 1.32-1.98 1.36-.53.05-1.02.24-3.44-.72-2.9-1.14-4.74-4.1-4.88-4.29-.14-.19-1.16-1.55-1.16-2.96s.74-2.1 1-2.39c.26-.29.57-.36.76-.36l.54.01c.17.01.41-.07.64.49.25.6.83 2.07.9 2.22.07.15.12.32.02.51-.1.19-.15.31-.3.48l-.44.51c-.15.15-.3.31-.13.61.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.45.29.15.46.13.63-.08.17-.19.73-.85.92-1.15.19-.29.39-.24.65-.15.26.1 1.66.78 1.94.93.29.14.48.22.55.34.07.12.07.7-.18 1.38Z" />
@@ -122,12 +130,16 @@ export function Hero() {
           </a>
         </div>
 
+        {/* The three questions that gate the tap - price, reply, commitment -
+            answered where the hesitation actually happens. */}
         <p
-          className="rise mt-9 font-mono text-[10px] leading-relaxed tracking-[0.16em] text-[#a9c2c0] sm:mt-12"
-          style={{ animationDelay: '460ms' }}
+          className="rise mt-4 max-w-[46ch] text-[13px] leading-relaxed text-[#b9cecc]"
+          style={{ animationDelay: '420ms' }}
         >
-          ONE DAY, FROM 06:40 TO 19:50 ↓
+          {REASSURANCE_SHORT}
         </p>
+
+        <SunArc className="mt-9 sm:mt-12" />
       </div>
     </section>
   );

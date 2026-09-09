@@ -14,7 +14,7 @@ export function References() {
     <section
       id="messages"
       data-section
-      data-hour="morning"
+      data-hour="dawn"
       style={{ background: 'var(--bg)', color: 'var(--ink)' }}
     >
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28">

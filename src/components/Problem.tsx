@@ -17,7 +17,7 @@ export function Problem() {
 
           <div className="lg:col-span-6 lg:col-start-7">
             <p data-reveal data-reveal-delay="80" className="measure text-[1.0625rem] leading-[1.72] text-[var(--dim)]">
-              A transfer company. A licensed guide. A boat. A snorkelling trip. Four confirmations,
+              A transfer company. A city guide. A boat. A snorkelling trip. Four confirmations,
               four strangers, four people who have no idea what you did yesterday or what you
               actually enjoyed.
             </p>
@@ -27,11 +27,19 @@ export function Problem() {
               from four bookings.
             </p>
 
-            <dl data-reveal data-reveal-delay="200" className="mt-10 grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4">
+            {/* Restored at the client's call over the comparison-list version:
+                he found the four-up stat grid more compelling to look at, and
+                every figure below is literally true, not an invented metric. */}
+            <dl
+              data-reveal
+              data-reveal-delay="200"
+              className="mt-10 grid grid-cols-2 gap-x-6 gap-y-7 border-t pt-8 sm:grid-cols-4"
+              style={{ borderColor: 'var(--rule)' }}
+            >
               {[
                 ['4', 'services, one person'],
                 ['1', 'number, any hour'],
-                ['0', 'agency between us'],
+                ['0', 'agencies in between'],
                 ['EN · HR', 'spoken on board'],
               ].map(([big, small]) => (
                 <div key={small}>

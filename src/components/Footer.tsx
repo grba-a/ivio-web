@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { SITE, SOCIALS, whatsapp } from '@/data/site';
 import { SCENES } from '@/data/day';
+import { dubrovnikNow } from '@/lib/time';
 
 /**
  * The page is one day, so the footer is the end of it - and it closes the loop
@@ -12,7 +13,7 @@ import { SCENES } from '@/data/day';
  * instrument, two different readings.
  */
 const WHERE: [number, number, string][] = [
-  [0, 6, 'asleep. The coast is dark and the sea is flat — write anyway, he reads it at six.'],
+  [0, 6, "asleep. The coast is dark and the sea is flat — write anyway, I read it at six."],
   [6, 8, 'on the road to Čilipi, watching an arrivals board.'],
   [8, 11, 'inside the walls, in the two hours before the ships.'],
   [11, 14, 'somewhere past Koločep with the throttle open.'],
@@ -21,19 +22,6 @@ const WHERE: [number, number, string][] = [
   [19, 22, 'cutting the engine for the sunset.'],
   [22, 24, 'tying up in the dark, answering messages.'],
 ];
-
-/** Minutes since midnight in Dubrovnik, whatever the reader's own clock says. */
-function dubrovnikNow() {
-  const parts = new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'Europe/Zagreb',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  }).formatToParts(new Date());
-  const h = Number(parts.find((p) => p.type === 'hour')?.value ?? 0);
-  const m = Number(parts.find((p) => p.type === 'minute')?.value ?? 0);
-  return { h, m, label: `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}` };
-}
 
 export function Footer() {
   // Rendered client-side only - the clock cannot be known at build time. The
@@ -48,7 +36,7 @@ export function Footer() {
   }, []);
 
   const where = now ? WHERE.find(([a, b]) => now.h >= a && now.h < b)?.[2] : null;
-  const dayFraction = now ? (now.h * 60 + now.m) / 1440 : 0;
+  const dayFraction = now?.fraction ?? 0;
 
   return (
     <footer
@@ -72,16 +60,16 @@ export function Footer() {
           <p className="max-w-[34ch] text-[1.0625rem] leading-[1.55] text-[var(--dim)]">
             {now ? (
               <>
-                Ivio would be <span style={{ color: 'var(--ink)' }}>{where}</span>
+                I&rsquo;m probably <span style={{ color: 'var(--ink)' }}>{where}</span>
               </>
             ) : (
-              <span className="opacity-0">Ivio would be somewhere out there.</span>
+              <span className="opacity-0">I&rsquo;m probably somewhere out there.</span>
             )}
           </p>
         </div>
 
         {/* The day line again - this time reading the clock, not your scroll. */}
-        <div className="relative mt-12 h-px" style={{ background: 'var(--line)' }}>
+        <div className="relative mt-12 h-px" style={{ background: 'var(--rule)' }}>
           {SCENES.map((s) => {
             const [hh, mm] = s.time.split(':').map(Number);
             return (
@@ -89,7 +77,7 @@ export function Footer() {
                 key={s.id}
                 aria-hidden
                 className="absolute top-1/2 h-2 w-px -translate-y-1/2"
-                style={{ left: `${((hh * 60 + mm) / 1440) * 100}%`, background: 'var(--line)' }}
+                style={{ left: `${((hh * 60 + mm) / 1440) * 100}%`, background: 'var(--tick)' }}
               />
             );
           })}
@@ -118,23 +106,23 @@ export function Footer() {
               href={whatsapp('Hi Ivio — I found your website and I have a question.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex min-h-12 items-center gap-2.5 rounded-full px-6 text-[15px] font-medium"
-              style={{ background: 'var(--accent)', color: '#0f1f26' }}
+              id="footer-cta"
+              className="mt-7 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-amber px-6 text-[15px] font-medium text-[#101f26]"
             >
               Start a message
             </a>
           </div>
 
           <div className="sm:col-span-3 sm:col-start-7">
-            <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--dim)]">REACH HIM</p>
+            <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--dim)]">REACH ME</p>
             <ul className="mt-4 space-y-3 font-mono text-[11px] tracking-[0.08em]">
               <li>
-                <a href={`tel:${SITE.phoneRaw}`} className="inline-flex min-h-9 items-center">
+                <a href={`tel:${SITE.phoneRaw}`} className="inline-flex min-h-11 items-center">
                   {SITE.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${SITE.email}`} className="inline-flex min-h-9 items-center break-all">
+                <a href={`mailto:${SITE.email}`} className="inline-flex min-h-11 items-center break-all">
                   {SITE.email}
                 </a>
               </li>
@@ -144,7 +132,7 @@ export function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-9 items-center gap-2"
+                    className="inline-flex min-h-11 items-center gap-2"
                   >
                     <span className="text-[var(--dim)]">{s.label.toUpperCase()}</span>
                     <span>{s.handle}</span>
@@ -166,10 +154,10 @@ export function Footer() {
 
         <div
           className="mt-14 flex flex-col gap-2 border-t pt-6 font-mono text-[9px] tracking-[0.18em] text-[var(--dim)] sm:flex-row sm:justify-between"
-          style={{ borderColor: 'var(--line)' }}
+          style={{ borderColor: 'var(--rule)' }}
         >
           <span>© {new Date().getFullYear()} IVIO BILIĆ</span>
-          <span>ENGLISH · HRVATSKI</span>
+          <span>DUBROVNIK, CROATIA</span>
         </div>
       </div>
     </footer>

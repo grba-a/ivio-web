@@ -93,7 +93,12 @@ export function DayBar() {
   };
 
   const ink = overlay ? '#fdfaf4' : 'var(--chrome-ink)';
-  const line = overlay ? 'rgba(255,255,255,0.38)' : 'var(--chrome-line)';
+  // --chrome-line measures under 1.5:1 against its own background in every
+  // hour, so the day line - the central device of the whole design - was
+  // effectively invisible except over the hero photograph. Derive it from the
+  // ink instead, which tracks the palette and stays legible.
+  const line = overlay ? 'rgba(255,255,255,0.42)' : 'color-mix(in oklab, var(--chrome-ink) 26%, transparent)';
+  const tick = overlay ? 'rgba(255,255,255,0.65)' : 'color-mix(in oklab, var(--chrome-ink) 48%, transparent)';
 
   return (
     <header
@@ -101,10 +106,10 @@ export function DayBar() {
       data-overlay={overlay || undefined}
       className="fixed inset-x-0 top-0 z-50 transition-colors duration-500"
       style={{
-        background: overlay ? 'transparent' : 'color-mix(in oklab, var(--chrome-bg) 90%, transparent)',
+        background: overlay ? 'transparent' : 'color-mix(in oklab, var(--chrome-bg) 97%, transparent)',
         color: ink,
         borderBottom: `1px solid ${overlay ? 'transparent' : 'var(--chrome-line)'}`,
-        backdropFilter: overlay ? 'none' : 'blur(10px)',
+        backdropFilter: overlay ? 'none' : 'blur(18px)',
       }}
     >
       {/* Legibility over the picture comes from a scrim that travels with the
@@ -126,10 +131,10 @@ export function DayBar() {
           </span>
         </a>
 
-        {/* Mobile: only the live label fits. Desktop: all five, in order. */}
-        <p className="ml-auto font-mono text-[11px] tracking-[0.16em] tabular-nums sm:hidden">
-          <span className="opacity-60">{SCENES[active].time}</span>
-          <span className="mx-1.5 opacity-35">·</span>
+        {/* The promise is that you see all five in two seconds. Showing one
+            label on a phone keeps that promise only on desktop, which is the
+            device this site will be read on least. */}
+        <p className="ml-auto font-mono text-[10px] tracking-[0.2em] sm:hidden" style={{ color: 'var(--color-amber)' }}>
           {SCENES[active].label.toUpperCase()}
         </p>
 
@@ -166,6 +171,23 @@ export function DayBar() {
 
       </div>
 
+      {/* Phone: the five times, evenly spread, active one in amber. */}
+      <ul className="mx-4 mb-1.5 flex justify-between font-mono text-[10px] tabular-nums tracking-[0.06em] sm:hidden">
+        {SCENES.map((s, i) => (
+          <li key={s.id}>
+            <a
+              href={`#${s.id}`}
+              onClick={go(s.id)}
+              aria-current={i === active ? 'true' : undefined}
+              className="block py-0.5"
+              style={{ opacity: i === active ? 1 : 0.5, color: i === active ? 'var(--color-amber)' : undefined }}
+            >
+              {s.time}
+            </a>
+          </li>
+        ))}
+      </ul>
+
       {/* The line itself. Ticks sit on it; the marker travels between them. */}
       <div className="relative mx-4 h-px sm:mx-6" style={{ background: line }}>
         {SCENES.map((s, i) => (
@@ -175,7 +197,7 @@ export function DayBar() {
             className="absolute top-1/2 h-1.5 w-px -translate-y-1/2"
             style={{
               left: `${(i / (SCENES.length - 1)) * 100}%`,
-              background: line,
+              background: tick,
             }}
           />
         ))}
@@ -183,7 +205,7 @@ export function DayBar() {
           ref={markerRef}
           aria-hidden
           className="absolute top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full"
-          style={{ left: '0%', background: overlay ? 'var(--color-amber)' : 'var(--chrome-ink)' }}
+          style={{ left: '0%', background: 'var(--color-amber)', boxShadow: '0 0 0 3px color-mix(in oklab, var(--color-amber) 22%, transparent)' }}
         />
       </div>
     </header>

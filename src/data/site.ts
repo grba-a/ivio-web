@@ -34,7 +34,7 @@ export const DEFAULT_MESSAGE =
  * CAN be charged or held. The one behavioural promise is the price in the first
  * reply: Ivio has to actually agree to do that.
  */
-export const REASSURANCE = 'He answers personally, and sends a price in that first reply. No deposit, no booking form — nothing is fixed until you both agree it.';
+export const REASSURANCE = "I answer personally, and I'll send you a price in that first reply. No deposit, no booking form — nothing is fixed until we both agree it.";
 
 /** Shorter form, for use directly under a button. */
-export const REASSURANCE_SHORT = 'No deposit, no form. He sends a price in the first reply.';
+export const REASSURANCE_SHORT = "No deposit, no form. I'll send you a price in the first reply.";

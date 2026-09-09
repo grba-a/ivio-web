@@ -21,12 +21,29 @@ export function Ivio() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28 lg:py-36">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
+            {/* Graduation day proves the credential; the two dives underneath
+                prove he's actually the one in the water, not just a name on a
+                boat. Three frames, one person, on land and under it. */}
             <div data-reveal className="relative">
               <Picture
                 id="ivio-graduation"
                 alt="Ivio Bilić receiving his diploma and the Rector's Award at the University of Dubrovnik."
                 sizes="(min-width: 1024px) 56vw, 92vw"
                 className="w-full rounded-sm object-cover"
+              />
+            </div>
+            <div data-reveal data-reveal-delay="100" className="mt-4 grid grid-cols-2 gap-4">
+              <Picture
+                id="ivio-diving-relic"
+                alt="Ivio diving in full scuba gear, holding up an encrusted old bottle he found on the seabed."
+                sizes="(min-width: 1024px) 27vw, 45vw"
+                className="aspect-[3/4] w-full rounded-sm object-cover shadow-[0_18px_50px_-24px_rgba(4,22,30,0.7)]"
+              />
+              <Picture
+                id="ivio-diving-mask"
+                alt="Ivio freediving underwater, face close to the camera, mask and snorkel on."
+                sizes="(min-width: 1024px) 27vw, 45vw"
+                className="aspect-[3/4] w-full rounded-sm object-cover shadow-[0_18px_50px_-24px_rgba(4,22,30,0.7)]"
               />
             </div>
           </div>
@@ -49,6 +66,11 @@ export function Ivio() {
               I grew up on this stretch of water, between Cavtat and the Elaphiti. I know which bay
               is calm when the wind turns, which cave lights up at which hour, and which street in
               the Old Town is worth walking at eight in the morning rather than at noon.
+            </p>
+
+            <p data-reveal data-reveal-delay="190" className="measure mt-5 text-[1.0625rem] leading-[1.72] text-[var(--dim)]">
+              Most of what I know about this coast I learned from under it — diving for the wrecks
+              and the odd forgotten bottle as much as walking the walls above.
             </p>
 
             <p data-reveal data-reveal-delay="210" className="measure mt-5 text-[1.0625rem] leading-[1.72] text-[var(--dim)]">

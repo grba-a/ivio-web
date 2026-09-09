@@ -34,36 +34,56 @@
 @property --chrome-ink { syntax: "<color>"; inherits: true; initial-value: #14323c; }
 @property --chrome-line { syntax: "<color>"; inherits: true; initial-value: #e2d9c9; }
 
-/* --- the five hours of the day, plus two reading surfaces ---------------- */
+/* --- the five hours of the day, plus two reading surfaces ----------------
+   These are tuned by measured luminance, not by eye. The first pass had
+   paper/dawn differing by RGB (3,5,7) - no seam at all - and deep, dusk and
+   ink within 0.004 luminance of one another, which made scenes 4, 5 and the
+   whole footer one continuous black slab.
+
+   The arc now actually runs: low warm light, high limestone glare, turquoise
+   noon, the cold dark under the water, then a WARM dark for dusk. Deep and
+   dusk sit at similar luminance on purpose - it is the hue that separates
+   them, cold sea against warm last light.
+
+   --rule and --tick are derived from each hour's own ink. The hand-picked
+   --line values measured under 1.5:1 against their own backgrounds, which made
+   every hairline on the page invisible.
+--------------------------------------------------------------------------- */
 [data-hour="paper"] {
-  --bg: #f7f3ea; --ink: #14323c; --dim: #5c7078; --line: #e2d9c9; --accent: #a8531f;
+  --bg: #f7f3ea; --ink: #14323c; --dim: #56696f; --line: #e2d9c9; --accent: #a8531f;
 }
 [data-hour="dawn"] {
-  --bg: #f4eee3; --ink: #253239; --dim: #5e6f76; --line: #ded3c2; --accent: #a8531f;
+  --bg: #ecdfcb; --ink: #24313a; --dim: #55666e; --line: #d6c6ac; --accent: #9d4c1b;
 }
 [data-hour="morning"] {
-  --bg: #ece3d3; --ink: #1d3037; --dim: #566970; --line: #d5c7b1; --accent: #9d4c1b;
+  --bg: #f7f1e4; --ink: #1b2f36; --dim: #4f636a; --line: #e3d8c4; --accent: #99490f;
 }
 [data-hour="noon"] {
-  --bg: #dbedea; --ink: #0d2b30; --dim: #436164; --line: #b9d8d2; --accent: #9d4c1b;
+  --bg: #d8ece8; --ink: #0c2a2f; --dim: #3d5c60; --line: #b3d5cf; --accent: #96460f;
 }
 [data-hour="deep"] {
-  --bg: #08222d; --ink: #e7efec; --dim: #9ab8b6; --line: #143b48; --accent: #eaad63;
+  --bg: #07202b; --ink: #e7efec; --dim: #9ab8b6; --line: #143b48; --accent: #eaad63;
 }
 [data-hour="dusk"] {
-  --bg: #14232b; --ink: #f2e7d8; --dim: #c2ab93; --line: #2c3e45; --accent: #eb9a45;
+  --bg: #2b2018; --ink: #f4e9da; --dim: #c9b096; --line: #47372a; --accent: #f0a556;
 }
 [data-hour="ink"] {
   --bg: #0a2733; --ink: #f2efe7; --dim: #9db6ba; --line: #1a4050; --accent: #eaad63;
 }
 
+/* Hairlines that survive their own background, in every hour. */
+[data-hour] {
+  --rule: color-mix(in oklab, var(--ink) 20%, transparent);
+  --tick: color-mix(in oklab, var(--ink) 42%, transparent);
+}
+
 /* The sticky day bar follows whichever hour you are reading. */
 html { --chrome-bg: #f7f3ea; --chrome-ink: #14323c; --chrome-line: #e2d9c9; }
-html[data-active="dawn"]    { --chrome-bg: #f4eee3; --chrome-ink: #253239; --chrome-line: #ded3c2; }
-html[data-active="morning"] { --chrome-bg: #ece3d3; --chrome-ink: #1d3037; --chrome-line: #d5c7b1; }
-html[data-active="noon"]    { --chrome-bg: #dbedea; --chrome-ink: #0d2b30; --chrome-line: #b9d8d2; }
-html[data-active="deep"]    { --chrome-bg: #08222d; --chrome-ink: #e7efec; --chrome-line: #1c4553; }
-html[data-active="dusk"]    { --chrome-bg: #14232b; --chrome-ink: #f2e7d8; --chrome-line: #35474e; }
+html[data-active="dawn"]    { --chrome-bg: #ecdfcb; --chrome-ink: #24313a; --chrome-line: #d6c6ac; }
+html[data-active="morning"] { --chrome-bg: #f7f1e4; --chrome-ink: #1b2f36; --chrome-line: #e3d8c4; }
+html[data-active="noon"]    { --chrome-bg: #d8ece8; --chrome-ink: #0c2a2f; --chrome-line: #b3d5cf; }
+html[data-active="deep"]    { --chrome-bg: #07202b; --chrome-ink: #e7efec; --chrome-line: #143b48; }
+html[data-active="dusk"]    { --chrome-bg: #2b2018; --chrome-ink: #f4e9da; --chrome-line: #47372a; }
 html[data-active="ink"]     { --chrome-bg: #0a2733; --chrome-ink: #f2efe7; --chrome-line: #1a4050; }
 
 @layer base {
@@ -126,6 +146,48 @@ html[data-active="ink"]     { --chrome-bg: #0a2733; --chrome-ink: #f2efe7; --chr
     to { opacity: 1; transform: none; }
   }
   .rise { animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+  /* --- The Sun Line (hero) ---------------------------------------------
+     motion-design skill, "Premium" personality: 350-600ms base, extended
+     into the 600-1200ms "dramatic reveal" band because this is seen once,
+     at the top of the page. cubic-bezier(0.4,0,0.2,1), zero overshoot.
+     Three layers: the arc drawing in (primary), the dot's glow arriving
+     with it (secondary), and a slow breathing pulse once settled (ambient). */
+  .sun-arc { opacity: 0; animation: sun-arc-in 700ms cubic-bezier(0.4, 0, 0.2, 1) 520ms both; }
+  @keyframes sun-arc-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .sun-arc__draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: sun-arc-draw 900ms cubic-bezier(0.4, 0, 0.2, 1) 640ms forwards;
+  }
+  @keyframes sun-arc-draw { to { stroke-dashoffset: 0; } }
+
+  .sun-arc__dot {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: sun-arc-dot-in 500ms cubic-bezier(0.4, 0, 0.2, 1) 1080ms forwards;
+  }
+  @keyframes sun-arc-dot-in {
+    from { opacity: 0; transform: translate(var(--sun-x, 0), var(--sun-y, 0)) scale(0.4); }
+    to { opacity: 1; transform: translate(var(--sun-x, 0), var(--sun-y, 0)) scale(1); }
+  }
+
+  .sun-arc__glow { animation: sun-arc-breathe 2600ms ease-in-out 1580ms infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes sun-arc-breathe {
+    0%, 100% { opacity: 0.18; transform: scale(1); }
+    50% { opacity: 0.38; transform: scale(1.35); }
+  }
+
+  .sun-arc__label { opacity: 0; animation: rise 700ms cubic-bezier(0.4, 0, 0.2, 1) 1160ms both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sun-arc, .sun-arc__label { animation: none; opacity: 1; }
+    .sun-arc__draw { animation: none; stroke-dashoffset: 0; }
+    .sun-arc__dot { animation: none; opacity: 1; transform: translate(var(--sun-x, 0), var(--sun-y, 0)); }
+    .sun-arc__glow { animation: none; opacity: 0.24; }
+  }
 
   .measure { max-width: 62ch; }
 

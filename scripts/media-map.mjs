@@ -37,4 +37,12 @@ export const MAP = {
   'IMG_4735.HEIC': 'boat-alone-blue',
   // 'GPTempDownload 2.JPG' and 'IMG_4682.HEIC' left out: one is unusably dark,
   // the other duplicates IMG_4681.
+
+  // Third batch, from the September WeTransfer drop. The "Who's driving"
+  // section had exactly one photograph of Ivio - graduation day, on land, in
+  // a gown. These are the only two frames anywhere in the material that show
+  // him actually doing the job: face in a mask, and mid-dive holding up an
+  // encrusted old bottle he'd found.
+  'GPTempDownload(1).jpeg': 'ivio-diving-mask',
+  'IMG_1112.jpeg': 'ivio-diving-relic',
 };

@@ -55,6 +55,20 @@
     ],
     "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoUAA8APxFysFCsJqSisAgBgCIJbACdMoADKa7pYhNHwlrdAAD+6/6KbRkWPWO95undTKQ9x3K9pXw5fd9kKJhQc6wShOu2AzShwD1wHi5vhLCbYZFoBzhE3uU2joZjRC7XTY0CprcsCcsHk239JdAAAAA="
   },
+  "ivio-diving-mask": {
+    "width": 4000,
+    "height": 3000,
+    "aspect": 1.3333,
+    "widths": [
+      480,
+      780,
+      1080,
+      1290,
+      1600,
+      2000
+    ],
+    "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoUAA8APxFysFAsJqSisAgBgCIJbACdMoR3ABb3X3oDW7p/awAAmfd5T6yEsoDM6EZr/kyqVivv1I3wzuRWuD4rdCpZpDPrW2FGF6b6hJ8NrYp/IixKgAAA"
+  },
   "reef-fish": {
     "width": 4000,
     "height": 3000,
@@ -68,6 +82,16 @@
       2000
     ],
     "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwBACdASoUAA8APxFysFAsJqSisAgBgCIJbACdABtjmu2bcNEyFueG9SAA74ZPoTEdXGrZQG074sGnCjzbkZMTcNCQIi0u9wJVzXdsSMFfNM4UHQoUOfeeSTE01urhSzpsudXOm0NBO1jmgAA="
+  },
+  "ivio-diving-relic": {
+    "width": 1067,
+    "height": 1600,
+    "aspect": 0.6669,
+    "widths": [
+      480,
+      780
+    ],
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwBQCdASoUAB4APwluq1ArpqOisAwBcCEJbACdMoR7KBE3A3gwW6Oq9AeRgwzj+motwADCswq7UCjqVS0J3m0ULMoQTZU2F4+BW/eb7A/G6yCMKNn3MDjgEUq8H5LDi8B0DT7gDRMYWhvtrqESWOz6/R3jF2RgARrWnD5HYYpxyRklCsWwftzWMCXXMtfeBobspjmQAAA="
   },
   "helm-open-sea": {
     "width": 3024,
