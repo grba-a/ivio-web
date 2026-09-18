@@ -115,7 +115,7 @@ export function Footer() {
 
           <div className="sm:col-span-3 sm:col-start-7">
             <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--dim)]">REACH ME</p>
-            <ul className="mt-4 space-y-3 font-mono text-[11px] tracking-[0.08em]">
+            <ul className="mt-4 space-y-3 font-mono text-[14px] tracking-[0.04em]">
               <li>
                 <a href={`tel:${SITE.phoneRaw}`} className="inline-flex min-h-11 items-center">
                   {SITE.phone}
@@ -144,7 +144,7 @@ export function Footer() {
 
           <div className="sm:col-span-3">
             <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--dim)]">WHERE</p>
-            <ul className="mt-4 space-y-2 font-mono text-[11px] leading-relaxed tracking-[0.08em]">
+            <ul className="mt-4 space-y-2 font-mono text-[14px] leading-relaxed tracking-[0.04em]">
               {SITE.areas.map((a) => (
                 <li key={a}>{a}</li>
               ))}
@@ -153,7 +153,7 @@ export function Footer() {
         </div>
 
         <div
-          className="mt-14 flex flex-col gap-2 border-t pt-6 font-mono text-[9px] tracking-[0.18em] text-[var(--dim)] sm:flex-row sm:justify-between"
+          className="mt-14 flex flex-col gap-2 border-t pt-6 font-mono text-[11px] tracking-[0.12em] text-[var(--dim)] sm:flex-row sm:justify-between"
           style={{ borderColor: 'var(--rule)' }}
         >
           <span>© {new Date().getFullYear()} IVIO BILIĆ</span>

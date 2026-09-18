@@ -1,6 +1,5 @@
 import media from '@/data/media.json';
 import { whatsapp, DEFAULT_MESSAGE, REASSURANCE_SHORT } from '@/data/site';
-import { SunArc } from './SunArc';
 
 const MOBILE = 'islet-sun-clouds';
 const DESKTOP = 'hero-islet-gold';
@@ -77,16 +76,18 @@ export function Hero() {
           className="rise font-mono text-[10px] tracking-[0.28em] text-[#cfe3e0] sm:text-xs"
           style={{ animationDelay: '80ms' }}
         >
-          DUBROVNIK · CAVTAT · ELAPHITI
+          RECTOR&apos;S AWARD · CERTIFIED DIVER
         </p>
 
         <h1
-          className="rise mt-5 max-w-[17ch] text-[clamp(3rem,12vw,6.5rem)] leading-[0.94] tracking-[-0.02em] text-[#fdfaf4]"
+          className="rise mt-5 max-w-[15ch] text-[clamp(2.75rem,11vw,6rem)] leading-[0.94] tracking-[-0.02em] text-[#fdfaf4]"
           style={{ animationDelay: '160ms' }}
         >
-          One local.
+          The most
           <br />
-          Your entire
+          overqualified
+          <br />
+          boat guy in
           <br />
           {/* The payoff word carries the brand orange as a lighter tint. The
               solid #e08b3c stays reserved for filled buttons, so "filled means
@@ -99,12 +100,14 @@ export function Hero() {
           </span>
         </h1>
 
+        {/* Full cut on mobile, not a shorter version: the credential-led headline
+            already answers what this is. Subline and reassurance line only earn
+            their space back once there's room, from sm: up. */}
         <p
-          className="rise measure mt-6 text-[1.0625rem] leading-relaxed text-[#dfe9e6] sm:mt-7 sm:text-lg"
+          className="rise measure mt-6 hidden text-[1.0625rem] leading-relaxed text-[#dfe9e6] sm:mt-7 sm:block sm:text-lg"
           style={{ animationDelay: '260ms' }}
         >
-          The ride from the airport, the walls before the crowds, the boat, the caves, the last
-          light. One person. One number.
+          One local, one number, the whole coast — walls, caves, the last light.
         </p>
 
         <div
@@ -133,13 +136,11 @@ export function Hero() {
         {/* The three questions that gate the tap - price, reply, commitment -
             answered where the hesitation actually happens. */}
         <p
-          className="rise mt-4 max-w-[46ch] text-[13px] leading-relaxed text-[#b9cecc]"
+          className="rise mt-4 hidden max-w-[46ch] text-[13px] leading-relaxed text-[#b9cecc] sm:block"
           style={{ animationDelay: '420ms' }}
         >
           {REASSURANCE_SHORT}
         </p>
-
-        <SunArc className="mt-9 sm:mt-12" />
       </div>
     </section>
   );

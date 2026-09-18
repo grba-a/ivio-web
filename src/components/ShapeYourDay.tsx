@@ -109,6 +109,62 @@ export function ShapeYourDay() {
               same day. Nothing is fixed until we both agree it.
             </p>
 
+            {/* Lifted onto its own card instead of var(--dim) labels straight on
+                var(--bg). First pass mixed in too much white (55%) - against
+                light ink text that measured 3.5:1, below AA. 14% keeps the
+                card visibly a step up from the page (elevated surface) while
+                ink text on it measures ~9:1 and the accent icons ~5.5:1. */}
+            <div
+              data-reveal
+              data-reveal-delay="180"
+              className="mt-10 space-y-5 rounded-2xl border p-5 sm:p-6"
+              style={{ borderColor: 'var(--line)', background: 'color-mix(in oklab, var(--bg) 86%, #fff 14%)' }}
+            >
+              <a href={`tel:${SITE.phoneRaw}`} className="flex min-h-11 items-center gap-3.5">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-6 w-6 shrink-0"
+                  fill="var(--accent)"
+                  aria-hidden
+                >
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <span className="font-mono text-[19px] font-semibold tracking-[0.02em] sm:text-[21px]" style={{ color: 'var(--ink)' }}>
+                  {SITE.phone}
+                </span>
+              </a>
+              <a href={`mailto:${SITE.email}`} className="flex min-h-11 items-center gap-3.5">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-6 w-6 shrink-0"
+                  fill="var(--accent)"
+                  aria-hidden
+                >
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                <span className="break-all font-mono text-[14px] tracking-[0.02em]" style={{ color: 'var(--ink)' }}>
+                  {SITE.email}
+                </span>
+              </a>
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-11 items-center gap-3.5"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-6 w-6 shrink-0"
+                  fill="var(--accent)"
+                  aria-hidden
+                >
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2c-2.72 0-3.06.01-4.12.06-1.07.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.16-.56.55-.9 1.11-1.16 1.77-.25.64-.42 1.36-.47 2.43C2 8.94 2 9.28 2 12s.01 3.06.06 4.12c.05 1.07.22 1.79.47 2.43.26.66.6 1.22 1.16 1.77.55.56 1.11.9 1.77 1.16.64.25 1.36.42 2.43.47C8.94 22 9.28 22 12 22s3.06-.01 4.12-.06c1.07-.05 1.79-.22 2.43-.47.66-.26 1.22-.6 1.77-1.16.56-.55.9-1.11 1.16-1.77.25-.64.42-1.36.47-2.43.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.07-.22-1.79-.47-2.43-.26-.66-.6-1.22-1.16-1.77-.55-.56-1.11-.9-1.77-1.16-.64-.25-1.36-.42-2.43-.47C15.06 2.01 14.72 2 12 2zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.21 1.86.35.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.31.88.35 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.21 1.5-.35 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.88.31-1.86.35-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.21-1.86-.35-.47-.18-.8-.4-1.15-.75-.35-.35-.57-.68-.75-1.15-.14-.36-.31-.88-.35-1.86C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.98.21-1.5.35-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.88-.31 1.86-.35C9.01 3.81 9.33 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 0 0 10.3 5.15 5.15 0 0 0 0-10.3zm0 8.5a3.35 3.35 0 1 1 0-6.7 3.35 3.35 0 0 1 0 6.7zm5.35-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
+                </svg>
+                <span className="font-mono text-[14px] tracking-[0.02em]" style={{ color: 'var(--ink)' }}>
+                  @iviobilic
+                </span>
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7">
@@ -217,26 +273,6 @@ export function ShapeYourDay() {
               <p data-reveal data-reveal-delay="200" className="measure mt-4 text-[13px] leading-relaxed text-[var(--dim)]">
                 {REASSURANCE}
               </p>
-            </div>
-
-            <div data-reveal data-reveal-delay="240" className="mt-10 border-t pt-8 space-y-3 font-mono text-[11px] tracking-[0.1em]" style={{ borderColor: 'var(--rule)' }}>
-              <a href={`tel:${SITE.phoneRaw}`} className="flex min-h-11 items-center gap-3">
-                <span className="text-[var(--dim)]">CALL</span>
-                <span>{SITE.phone}</span>
-              </a>
-              <a href={`mailto:${SITE.email}`} className="flex min-h-11 items-center gap-3">
-                <span className="text-[var(--dim)]">MAIL</span>
-                <span className="break-all">{SITE.email}</span>
-              </a>
-              <a
-                href={SITE.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-11 items-center gap-3"
-              >
-                <span className="text-[var(--dim)]">INSTAGRAM</span>
-                <span>@iviobilic</span>
-              </a>
             </div>
           </div>
         </div>
