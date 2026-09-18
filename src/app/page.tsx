@@ -3,7 +3,7 @@ import { Hero } from '@/components/Hero';
 import { Problem } from '@/components/Problem';
 import { Scene } from '@/components/Scene';
 import { Ivio } from '@/components/Ivio';
-import { Reviews } from '@/components/Reviews';
+import { References } from '@/components/References';
 import { ShapeYourDay } from '@/components/ShapeYourDay';
 import { FloatingCta } from '@/components/FloatingCta';
 import { Footer } from '@/components/Footer';
@@ -21,7 +21,7 @@ export default function Home() {
           <Scene key={scene.id} scene={scene} index={i} />
         ))}
         <Ivio />
-        <Reviews />
+        <References />
         <ShapeYourDay />
       </main>
       <Footer />
