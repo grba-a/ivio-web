@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'Ivio Bilić',
   role: 'All-in-one guide · Dubrovnik & Cavtat',
-  phone: '+385 92 437 7722',
-  phoneRaw: '385924377722',
+  phone: '+385 92 347 7722',
+  phoneRaw: '385923477722',
   email: 'iviobilic@gmail.com',
   instagram: 'https://www.instagram.com/iviobilic',
   url: 'https://iviobilic.com',

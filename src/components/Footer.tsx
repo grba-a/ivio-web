@@ -132,10 +132,10 @@ export function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center gap-2"
+                    aria-label={s.label}
+                    className="inline-flex min-h-11 items-center"
                   >
-                    <span className="text-[var(--dim)]">{s.label.toUpperCase()}</span>
-                    <span>{s.handle}</span>
+                    {s.handle}
                   </a>
                 </li>
               ))}
